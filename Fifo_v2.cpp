@@ -60,7 +60,7 @@ T Queue<T>::dequeue()
 {
 	if (!isEmpty_) {							
 		T temp = queue_[tail_];
-		queue_[tail_] = 0;
+		queue_[tail_] = '\0';
 		if (tail_ == size_ - 1) {
 			tail_ = 0;
 		}
@@ -85,15 +85,33 @@ T Queue<T>::dequeue()
 
 int main() {
 	try {
-		Queue<int> q;
-		q.enqueue(1);
-		q.enqueue(2);
-		q.enqueue(3);
-		q.enqueue(4);
-		std::cout << q.dequeue();
-		std::cout << q.dequeue();
-		std::cout << q.dequeue(); 
-		std::cout << q.dequeue();
+		Queue<std::string> s;
+		s.enqueue("a");
+		s.enqueue("sS");
+		s.enqueue("d");
+		s.enqueue("f");
+		std::cout << s.dequeue();
+		std::cout << s.dequeue();
+		std::cout << s.dequeue() << std::endl;
+
+		Queue<char> c;
+		c.enqueue('c');
+		c.enqueue('z');
+		c.enqueue('a');
+		c.enqueue('1');
+		std::cout << c.dequeue();
+		std::cout << c.dequeue();
+		std::cout << c.dequeue() << std::endl;
+
+		Queue<int> i;
+		i.enqueue(1);
+		i.enqueue(2);
+		i.enqueue(3);
+		i.enqueue(4);
+		std::cout << i.dequeue();
+		std::cout << i.dequeue();
+		std::cout << i.dequeue();
+		std::cout << i.dequeue();
 	}
 	catch (MyException& e) { std::cout << e.stringWhat_ << std::endl; }
 	return 0;
